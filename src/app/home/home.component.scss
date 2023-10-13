@@ -1,0 +1,67 @@
+#custom-nav{
+    background-color: #4059AD!important;
+    color: #ffffff!important;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    .navbar-brand{
+        color: #ffffff;
+        font-weight: 800;
+        letter-spacing: 3px;
+    }
+    .nav-item{
+        padding-left: 1rem;
+        padding-right: 1rem;
+        .nav-link{
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+    }
+}
+
+#main-header{
+    font-family: 'Montserrat', sans-serif; 
+    background: rgb(64,89,173);
+    background: linear-gradient(180deg, rgba(64,89,173,1) 0%, rgba(107,154,196,1) 50%, rgba(107,199,171,1) 100%);
+    height: 70%;
+    .main-header-inner{
+        color: #ffffff; 
+        padding:10%;
+        h1{
+            font-size: 3rem;
+            letter-spacing: 5px;
+            font-weight: 800;
+        }
+    }
+    form{
+        width: 90%;
+        input{
+            width: 100%;
+            height: 5rem;
+        }
+        button{height: 5rem; width: 15rem; font-size: 2rem;}
+    }
+}
+
+#section-access{
+    font-family: 'Montserrat', sans-serif; 
+    padding: 5%;
+    text-align: center;
+    h3{
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+
+    }
+    .col-6{
+        padding-left: 10%;
+        padding-right: 10%;
+        button{
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-top: 2rem;
+            color: #ffffff;
+            min-width: 15rem;
+        }
+    }
+}
