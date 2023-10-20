@@ -29,10 +29,12 @@
 }
 
 .stepper-two{
+    padding-top: 5%;
     select{
         margin-top: 1rem;
         margin-bottom: 1rem;
     }
+    .form-check-input{height: 2em; width: 2em;}
 }
 
 .step-btn{
@@ -61,4 +63,50 @@
      font-size: 1.3rem; 
      font-family: 'Montserrat', sans-serif; 
     margin-top: 1rem;}
+}
+
+#match-container{
+    font-family: 'Montserrat', sans-serif; 
+    padding-top: 5%;
+    padding-bottom: 5%;
+    color: #333333;
+}
+
+.form-title{
+    font-family: 'Montserrat', sans-serif; 
+    text-align: center;
+    font-weight: 700 ;
+}
+
+.match-express-form{
+    width: 60%;
+    margin: 0 auto;
+    label{font-weight: 600; font-size: 1.3rem;}
+    input, textarea, select{margin-bottom: .5rem; margin-top: .5rem;}
+}
+.question-container{
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+.question-one{background-color: #6B9AC4;}
+.question-two{
+    background-color: #6BC7AB;
+    h3{ font-family: 'Montserrat', sans-serif; font-weight: 600;}
+}
+.question-three{background-color: #6b70c7;}
+
+.light-text{
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: 600; 
+    font-size: 1.3rem;
+    text-align: left;
+    margin-right: 2rem;
+}
+
+label.form-check-label {
+    color: #EFF2F1;
+    font-size: 1.1rem;
+    margin-left: 0.5rem;
+    margin-top: 0.5rem;
 }

@@ -25,7 +25,7 @@
     </div>
 </nav>
 
-<div class="container-fluid pt-5">
+<div class="container-fluid pt-5" id="match-container">
     <div class="row">
         <div class="col-12">
             <mat-horizontal-stepper [linear]="isLinear" #stepper>
@@ -35,16 +35,17 @@
                     <ng-template matStepLabel>Primero necesitamos saber un poco de tí</ng-template>
                     <form class="stepper-form step-one">
                         <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Email</label>
-                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                          <div id="emailHelp" class="form-text">Nos contactaremos contigo por esta vía.</div>
+                          <label for="exampleInputName" class="form-label">Nombre</label>
+                          <input type="text" class="form-control" id="exampleInputName" placeholder="Nombre Apellido">
                         </div>
                         <div class="mb-3">
-                          <label for="exampleInputFirstName" class="form-label">Password</label>
-                          <input type="password" class="form-control" id="exampleInputPassword1">
+                          <label for="exampleInputEmail1" class="form-label">Email</label>
+                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                          placeholder="ejemplo@email.com">
+                          <div id="emailHelp" class="form-text">Nos contactaremos contigo por esta vía.</div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                      </form>
+                        <!--<button type="submit" class="btn btn-primary">Submit</button>-->
+                      
                       <div class="form-type-container">
                         <div class="row">
                           <div class="col-6">
@@ -56,67 +57,107 @@
                             <p>Tomará 5 minutos</p>
                           </div>
                         </div>
-              
                       </div>
+                    </form>
                 </mat-step>
             
                 <!-- STEP TWO -->
                 <mat-step>
-                    <ng-template matStepLabel>¿Qué esperas encontrar en tu terapeuta?</ng-template>
+                    <ng-template matStepLabel>Match terapeutico</ng-template>
                     <form class="stepper-form stepper-two">
                         <div class="row">
-                            <div class="col">
-                                <select class="form-select"  aria-label="Multiple select example">
-                                    <option selected>Criterio uno</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                </select>
+                            <div class="question-container question-one">
+                              <label class="form-label light-text">Describe brevemente por qué acudes a terapia</label>
+                              <textarea class="form-control" name="otros" id="" cols="10" 
+                              rows="5" placeholder="Deja aquí una breve descripción de por qué acudes a terapia"></textarea>
                             </div>
-                            <div class="col">
+                        </div>
+                        <div class="row">
+                            <div class="question-container question-two">
+                              <label class="form-label light-text">Síntomas asociados</label>
                                 <select class="form-select"  aria-label="Multiple select example">
-                                    <option selected>Criterio dos</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    <option selected>Miedo excesivo</option>
+                                    <option value="1">Sensaciones de ahogo </option>
+                                    <option value="2">Procastinacion excesiva</option>
+                                    <option value="3">Problemas en el sueño</option>
+                                    <option value="4">Problemas en la esfera sexual</option>
+                                    <option value="5">Crisis de identidad </option>
+                                    <option value="6">Problemas conyugales o de pareja</option>
+                                    <option value="7">Incapacidad de hacer actividades incluso al planearlas </option>
+                                    <option value="8">Pena excesiva</option>
+                                    <option value="9">Sobre reacciones</option>
+                                    <option value="10">Sensación de que algo no estará bien</option>
+                                    <option value="11">Rutinas rígidas</option>
                                 </select>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">
-                                <select class="form-select"  aria-label="Multiple select example">
-                                    <option selected>Criterio uno</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                </select>
-                            </div>
-                            <div class="col">
-                                <select class="form-select"  aria-label="Multiple select example">
-                                    <option selected>Criterio dos</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                </select>
+                          <div class="question-container question-three">
+                            <label class="form-label light-text">Coméntanos sobre ti</label>
+                            <textarea class="form-control" name="otros" id="" cols="10"
+                             rows="5" placeholder="Hobbies, a que te dedicas,gustos propios"></textarea>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <h3>Coméntanos cómo esperas que sea tu terapeuta</h3>
+                            <div class="question-container question-one">
+                              <label class="form-label light-text">¿En qué rango de edad?</label>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                <label class="form-check-label" for="inlineRadio1"> < 30 años</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                  <label class="form-check-label" for="inlineRadio2">30-40 años</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                  <label class="form-check-label" for="inlineRadio2">40+ años</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                  <label class="form-check-label" for="inlineRadio2">Me es indiferente</label>
+                              </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">
-                                <select class="form-select"  aria-label="Multiple select example">
-                                    <option selected>Criterio uno</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                </select>
+                          <div class="question-container question-one">
+                            <label class="form-label light-text">Preferencia de género</label>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                              <label class="form-check-label" for="inlineRadio1">Mujer</label>
                             </div>
-                            <div class="col">
-                                <select class="form-select"  aria-label="Multiple select example">
-                                    <option selected>Criterio dos</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                </select>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                <label class="form-check-label" for="inlineRadio2">Hombre</label>
                             </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                <label class="form-check-label" for="inlineRadio2">Disidente</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                <label class="form-check-label" for="inlineRadio2">Me es indiferente</label>
+                            </div>
+                          </div>
+
+                        </div>
+                        <div class="row">
+                          <div class="question-container question-one">
+                            <label class="form-label light-text">Modalidad</label>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                              <label class="form-check-label" for="inlineRadio1">Presencial</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                <label class="form-check-label" for="inlineRadio2">Online</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                <label class="form-check-label" for="inlineRadio2">Me es indiferente</label>
+                            </div>  
+                          </div>      
                         </div>
                     </form>
                     <div>
