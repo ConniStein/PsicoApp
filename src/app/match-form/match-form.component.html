@@ -45,9 +45,19 @@
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                       </form>
-                    <div>
-                      <button mat-button matStepperNext class="btn btn-info step-btn">Next</button>
-                    </div>
+                      <div class="form-type-container">
+                        <div class="row">
+                          <div class="col-6">
+                            <button  class="btn btn-express" routerLink="/match-form-express">Continuar Modo Express</button>
+                            <p>Tomará 1 minuto</p>
+                          </div>
+                          <div class="col-6">
+                            <button mat-button matStepperNext class="btn btn-normal">Continuar Modo Normal</button>
+                            <p>Tomará 5 minutos</p>
+                          </div>
+                        </div>
+              
+                      </div>
                 </mat-step>
             
                 <!-- STEP TWO -->

@@ -1,0 +1,83 @@
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary" id="custom-nav">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">PsicoApp</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
+        <ul class="navbar-nav mb-2 mb-lg-0 ">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Sobre nosotros</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#">Contacto</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search">
+          <button class="btn btn-success" type="submit" routerLink="/match-form">Buscar</button>
+        </form>
+      </div>
+    </div>
+</nav>
+
+<div class="container-fluid" id="match-express-container">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="form-title"> Match express</h1>
+            <form class="match-express-form">
+                <div class="row">
+                    <div class="question-container question-one">
+                        <label class="form-label light-text">¿Por qué acudes a terapia?</label>
+                        <select class="form-select"  aria-label="Multiple select example">
+                            <option selected>Sensación de ahogo </option>
+                            <option value="1">Sentimientos de culpa</option>
+                            <option value="2">Miedo excesivo</option>
+                            <option value="3">Ya no disfruto de hacer lo que antes si</option>
+                            <option value="4">Pensamientos sobre la muerte o ideas de desaparecer</option>
+                            <option value="5">Alteraciones del apetito (mucha hambre /poca)</option>
+                            <option value="6">Autolesiones (heridas infringidas por mi mismo)</option>
+                            <option value="7">Otros (especificar en campo de texto)</option>
+                        </select>
+                        <textarea class="form-control" name="otros" id="" cols="10" rows="5"></textarea>
+                    </div>
+                    <div class="question-container question-two">
+                        <h3>Terapeuta de preferencia</h3>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                            <label class="form-check-label" for="inlineRadio1">Mujer</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <label class="form-check-label" for="inlineRadio2">Hombre</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <label class="form-check-label" for="inlineRadio2">Disidente</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <label class="form-check-label" for="inlineRadio2">Me es indiferente</label>
+                        </div>
+                    </div>
+                    <div class="question-container question-three">
+                        <label class="form-label light-text">Me gustaría que las sesiones fueran:</label>
+                        <select class="form-select"  aria-label="Multiple select example">
+                            <option selected>Más dinámicas con actividades </option>
+                            <option value="1">Más de escucha</option>
+                            <option value="2">Más de activación</option>
+                            <option value="3">Otros (especificar en campo de texto)</option>
+                        </select>
+                        <textarea class="form-control" name="otros" id="" cols="10" rows="5"></textarea>
+                    </div>
+                    <button class="btn btn-continue">Continuar</button>
+                    <a routerLink="/match-form" class="back"> < Volver</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -13,6 +13,7 @@ import { STEPPER_GLOBAL_OPTIONS, StepperOptions } from '@angular/cdk/stepper';
 import {MatMenuModule} from '@angular/material/menu';
 import { HomeComponent } from './home/home.component';
 import { MatchFormComponent } from './match-form/match-form.component';
+import { MatchFormExpressComponent } from './match-form-express/match-form-express.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { MatchFormComponent } from './match-form/match-form.component';
     RegisterComponent,
     HomeComponent,
     MatchFormComponent,
+    MatchFormExpressComponent,
   ],
   imports: [
     BrowserModule,

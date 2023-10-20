@@ -38,3 +38,27 @@
 .step-btn{
     margin: 2rem 1rem .5rem 1rem;
 }
+
+.form-type-container{
+    display: flex;
+    justify-content: center;
+
+    .btn{
+        min-width: 25rem;
+        padding: 2rem 1rem;
+        color: #EFF2F1;
+        font-family: 'Montserrat', sans-serif; 
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+    .btn-express{
+        background-color: #F4B942;
+    }
+    .btn-normal{
+        background-color: #6BC7AB;
+    }
+    p{text-align: center;
+     font-size: 1.3rem; 
+     font-family: 'Montserrat', sans-serif; 
+    margin-top: 1rem;}
+}
