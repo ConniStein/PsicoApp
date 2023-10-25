@@ -8,6 +8,15 @@ import { RegisterComponent } from './register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatStepperModule} from '@angular/material/stepper';
 import { STEPPER_GLOBAL_OPTIONS, StepperOptions } from '@angular/cdk/stepper';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {BreakpointObserver} from '@angular/cdk/layout';
+import {StepperOrientation} from '@angular/material/stepper';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {NgSwitch, NgSwitchCase, AsyncPipe} from '@angular/common';
 
 
 import {MatMenuModule} from '@angular/material/menu';
@@ -29,7 +38,15 @@ import { MatchFormExpressComponent } from './match-form-express/match-form-expre
     AppRoutingModule,
     BrowserAnimationsModule,
     MatMenuModule,
-    MatStepperModule
+    MatStepperModule,
+    NgSwitch,
+    NgSwitchCase,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    AsyncPipe,
   ],
   providers: [
     {

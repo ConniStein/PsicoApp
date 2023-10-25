@@ -1,36 +1,11 @@
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary" id="custom-nav">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">PsicoApp</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
-        <ul class="navbar-nav mb-2 mb-lg-0 ">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Sobre nosotros</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " href="#">Contacto</a>
-          </li>
-        </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search">
-          <button class="btn btn-success" type="submit" routerLink="/match-form">Buscar</button>
-        </form>
-      </div>
-    </div>
-</nav>
-
 <div class="container-fluid pt-5" id="match-container">
     <div class="row">
         <div class="col-12">
-            <mat-horizontal-stepper [linear]="isLinear" #stepper>
+          <mat-horizontal-stepper class="example-stepper"
+  [orientation]="(stepperOrientation | async)!" #stepper>
 
-                <!-- STEP ONE-->
+
                 <mat-step>
                     <ng-template matStepLabel>Primero necesitamos saber un poco de tí</ng-template>
                     <form class="stepper-form step-one">
@@ -44,15 +19,15 @@
                           placeholder="ejemplo@email.com">
                           <div id="emailHelp" class="form-text">Nos contactaremos contigo por esta vía.</div>
                         </div>
-                        <!--<button type="submit" class="btn btn-primary">Submit</button>-->
+
                       </form>
                       <div class="form-type-container">
                         <div class="row">
-                          <div class="col-6">
+                          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                             <button  class="btn btn-express" routerLink="/match-form-express">Continuar Modo Express</button>
                             <p>Tomará 1 minuto</p>
                           </div>
-                          <div class="col-6">
+                          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                             <button mat-button matStepperNext class="btn btn-normal">Continuar Modo Normal</button>
                             <p>Tomará 5 minutos</p>
                           </div>
@@ -60,7 +35,7 @@
                       </div>
                 </mat-step>
             
-                <!-- STEP TWO -->
+
                 <mat-step>
                     <ng-template matStepLabel>Match terapeutico</ng-template>
                     <form class="stepper-form stepper-two">
@@ -172,9 +147,10 @@
                     <button mat-button (click)="stepper.reset()" class="btn btn-warning">Reset</button>
                   </div>
                 </mat-step>
-              </mat-horizontal-stepper>
+            </mat-horizontal-stepper>
         </div>
     </div>
 </div>
+
   
   

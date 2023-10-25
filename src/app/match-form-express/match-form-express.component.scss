@@ -1,22 +1,4 @@
-#custom-nav{
-    background-color: #4059AD!important;
-    color: #ffffff!important;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    .navbar-brand{
-        color: #ffffff;
-        font-weight: 800;
-        letter-spacing: 3px;
-    }
-    .nav-item{
-        padding-left: 1rem;
-        padding-right: 1rem;
-        .nav-link{
-            color: #ffffff;
-            text-transform: uppercase;
-        }
-    }
-}
+
 
 #match-express-container{
     font-family: 'Montserrat', sans-serif; 
@@ -65,4 +47,11 @@
     &:hover{
         background-color: #4090AD;
     }
+}
+
+@media screen and (max-width: 960px) {
+    .match-express-form {
+        width: 80%;
+    }
+    .question-two{text-align: justify;}
 }

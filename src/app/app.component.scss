@@ -1,0 +1,33 @@
+#custom-nav{
+    background-color: #4059AD!important;
+    color: #ffffff!important;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    .navbar-brand{
+        color: #ffffff;
+        font-weight: 800;
+        letter-spacing: 3px;
+    }
+    .nav-item{
+        padding-left: 1rem;
+        padding-right: 1rem;
+        .nav-link{
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+    }
+}
+
+
+/*RESPONSIVE*/
+@media screen and (max-width: 960px) {
+    button.navbar-toggler {
+        background-color: #6BC7AB;
+    }
+    #main-header .main-header-inner {
+        color: #ffffff;
+        padding: 25% 10%;
+        text-align: center;
+    }
+}
+
