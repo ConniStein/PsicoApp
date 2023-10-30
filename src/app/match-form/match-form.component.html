@@ -135,16 +135,20 @@
                         </div>
                     </form>
                     <div>
-                      <button mat-button matStepperPrevious class="btn btn-secondary step-btn">Volver</button>
-                      <button mat-button matStepperNext class="btn btn-info step-btn">Siguiente</button>
+                      <button mat-button matStepperPrevious class="btn btn-secondary step-btn yellow">Volver</button>
+                      <button mat-button matStepperNext class="btn btn-info step-btn green">Siguiente</button>
                     </div>
                 </mat-step>
                 <mat-step>
-                  <ng-template matStepLabel>Done</ng-template>
-                  You are now done.
-                  <div>
-                    <button mat-button matStepperPrevious class="btn btn-secondary">Back</button>
-                    <button mat-button (click)="stepper.reset()" class="btn btn-warning">Reset</button>
+                  <ng-template matStepLabel>Listo!</ng-template>
+                  <div class="step-three-box">
+                    <h3>Has completado el cuestionario</h3>
+                    <p>Ahora generaremos el match con un terapeuta adecuado para ti, basado en tus preferencias.</p>
+                  </div>
+            
+                  <div class="step-three-buttons">
+                    <button mat-button matStepperPrevious class="btn btn-secondary yellow">Volver</button>
+                    <button mat-button (click)="stepper.reset()" routerLink="/match-result" class="btn btn-warning green">Obtener match</button>
                   </div>
                 </mat-step>
             </mat-horizontal-stepper>

@@ -1,0 +1,122 @@
+
+#match-result{
+    padding: 5%;
+}
+
+.result-title{
+    color: #333333;
+    font-size: 1.5rem;
+    font-weight: 800;
+    font-family: 'Montserrat', sans-serif; font-weight: 600;
+    text-align: center;
+}
+
+.result-subtitle{
+    color: #333333;
+    text-align: center;
+}
+
+.therapist-card{
+    background-color: #4059AD;
+    width: 70%;
+    margin: 0 auto;
+    padding: 5%;
+    border-radius: 1rem;
+    color: #ffffff;
+    .btn{
+        min-width: 20rem;
+        padding: 0rem 1rem;
+        color: #EFF2F1;
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        height: 4rem;
+        line-height: 4rem;
+        display: block;
+        margin: 0 auto;
+        margin-top: 1rem;
+        &:hover{
+            background-color: #E79F0D!important;
+        }
+        }
+
+}
+
+.therapist-card-img{
+    display: inline-block;
+    width: 30%;
+    max-height: 10rem;
+    max-width: 10rem;
+    border-radius: 10rem;
+    position: relative;
+    height: 10rem;
+    bottom: 4rem;
+    img{
+        width: 100%;
+        border-radius: 10rem;
+        position: absolute;
+    }
+}
+
+.therapist-card-info{
+    display: inline-block;
+    width: 70%;
+    font-family: 'Montserrat', sans-serif;
+    ul{
+        list-style-type: none;
+        li{
+            font-size: 1rem;
+            line-height: 1.4rem;
+            span{
+                font-weight: 600;
+                font-size: 1.2rem;
+            }
+
+        }
+        .therapist-about{
+            margin-top: 1.5rem;
+        }
+    }
+}
+
+.btn.light-blue{
+    color: #EFF2F1;
+    display: block;
+    padding: .5rem 2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    margin: 0 auto;
+    margin-top: 2rem;
+    &:hover{
+        background-color: #3A6992;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .therapist-card{width: 100%;
+        .btn {
+            min-width: initial;
+            font-size: 1.3rem;
+            margin-top: 2rem;
+        }
+    }
+    .therapist-card-img{
+        display: block;
+        position: initial;
+        height: initial;
+        width: 60%;
+        margin: 0 auto;
+        margin-bottom: 2rem;
+        img{
+            width: 100%;
+            border-radius: 15rem;
+            position: initial;
+        }
+    }
+    .therapist-card-info {
+        display: block;
+        width: 100%;
+        font-family: "Montserrat", sans-serif;
+        ul{padding-left: 0; text-align: center;}
+    }
+}

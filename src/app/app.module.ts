@@ -23,6 +23,8 @@ import {MatMenuModule} from '@angular/material/menu';
 import { HomeComponent } from './home/home.component';
 import { MatchFormComponent } from './match-form/match-form.component';
 import { MatchFormExpressComponent } from './match-form-express/match-form-express.component';
+import { MatchResultComponent } from './match-result/match-result.component';
+import { AppointmentComponent } from './appointment/appointment.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { MatchFormExpressComponent } from './match-form-express/match-form-expre
     HomeComponent,
     MatchFormComponent,
     MatchFormExpressComponent,
+    MatchResultComponent,
+    AppointmentComponent,
   ],
   imports: [
     BrowserModule,
