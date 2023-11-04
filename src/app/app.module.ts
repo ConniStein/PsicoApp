@@ -17,7 +17,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {NgSwitch, NgSwitchCase, AsyncPipe} from '@angular/common';
-
+import { HttpClientModule } from '@angular/common/http';
 
 import {MatMenuModule} from '@angular/material/menu';
 import { HomeComponent } from './home/home.component';
@@ -51,7 +51,9 @@ import { AppointmentComponent } from './appointment/appointment.component';
     MatInputModule,
     MatButtonModule,
     AsyncPipe,
+    HttpClientModule
   ],
+
   providers: [
     {
       provide: STEPPER_GLOBAL_OPTIONS,

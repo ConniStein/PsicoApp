@@ -11,12 +11,13 @@
                     <form class="stepper-form step-one">
                         <div class="mb-3">
                           <label for="exampleInputName" class="form-label">Nombre</label>
-                          <input type="text" class="form-control" id="exampleInputName" placeholder="Nombre Apellido">
+                          <input type="text" class="form-control" id="exampleInputName" placeholder="Nombre Apellido" 
+                          [(ngModel)]="preregister.name" name="email" name="name">
                         </div>
                         <div class="mb-3">
                           <label for="exampleInputEmail1" class="form-label">Email</label>
                           <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                          placeholder="ejemplo@email.com">
+                          placeholder="ejemplo@email.com" [(ngModel)]="preregister.email" name="email">
                           <div id="emailHelp" class="form-text">Nos contactaremos contigo por esta vía.</div>
                         </div>
 
@@ -28,7 +29,7 @@
                             <p>Tomará 1 minuto</p>
                           </div>
                           <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                            <button mat-button matStepperNext class="btn btn-normal">Continuar Modo Normal</button>
+                            <button mat-button matStepperNext class="btn btn-normal" type="submit" (click)="preRegister()">Continuar Modo Normal</button>
                             <p>Tomará 5 minutos</p>
                           </div>
                         </div>
