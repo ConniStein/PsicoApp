@@ -6,18 +6,20 @@
   [orientation]="(stepperOrientation | async)!" #stepper>
 
 
-                <mat-step>
+                <mat-step [editable]="isEditable">
+                  <div *ngIf="showStepOneError" class="error-message">Please fill in all required fields</div>
                     <ng-template matStepLabel>Primero necesitamos saber un poco de tí</ng-template>
                     <form class="stepper-form step-one">
                         <div class="mb-3">
                           <label for="exampleInputName" class="form-label">Nombre</label>
                           <input type="text" class="form-control" id="exampleInputName" placeholder="Nombre Apellido" 
-                          [(ngModel)]="preregister.name" name="email" name="name">
+                          [(ngModel)]="preregister.name" name="name" required (ngModelChange)="checkStepOneCompletion()">
+                        
                         </div>
                         <div class="mb-3">
                           <label for="exampleInputEmail1" class="form-label">Email</label>
-                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                          placeholder="ejemplo@email.com" [(ngModel)]="preregister.email" name="email">
+                          <input type="email" class="form-control" id="exampleInputEmail1"placeholder="ejemplo@email.com"
+                          [(ngModel)]="preregister.email" name="email" required (ngModelChange)="checkStepOneCompletion()">
                           <div id="emailHelp" class="form-text">Nos contactaremos contigo por esta vía.</div>
                         </div>
 
@@ -28,8 +30,10 @@
                             <button  class="btn btn-express" routerLink="/match-form-express">Continuar Modo Express</button>
                             <p>Tomará 1 minuto</p>
                           </div>
+
                           <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                            <button mat-button matStepperNext class="btn btn-normal" type="submit" (click)="preRegister()">Continuar Modo Normal</button>
+                            <button mat-button matStepperNext class="btn btn-normal" type="submit" (click)="preRegister()"
+                            [disabled]="!checkPreviousStepCompletion(stepper, 1)"  >Continuar Modo Normal</button>
                             <p>Tomará 5 minutos</p>
                           </div>
                         </div>
@@ -43,14 +47,16 @@
                         <div class="row">
                             <div class="question-container question-one">
                               <label class="form-label light-text">Describe brevemente por qué acudes a terapia</label>
-                              <textarea class="form-control" name="otros" id="" cols="10" 
-                              rows="5" placeholder="Deja aquí una breve descripción de por qué acudes a terapia"></textarea>
+                              <textarea class="form-control" name="otros" id="" cols="10" [(ngModel)]="stepTwoData.description" (ngModelChange)="checkStepTwoCompletion()"
+                              rows="5" placeholder="Deja aquí una breve descripción de por qué acudes a terapia" required
+                              ></textarea>
                             </div>
                         </div>
                         <div class="row">
                             <div class="question-container question-two">
                               <label class="form-label light-text">Síntomas asociados</label>
-                                <select class="form-select"  aria-label="Multiple select example">
+                                <select class="form-select"  aria-label="Multiple select example" [(ngModel)]="stepTwoData.selectedSymptoms"
+                                 (ngModelChange)="checkStepTwoCompletion()" name="selectedSymptoms" required>
                                     <option selected>Miedo excesivo</option>
                                     <option value="1">Sensaciones de ahogo </option>
                                     <option value="2">Procastinacion excesiva</option>
@@ -69,8 +75,9 @@
                         <div class="row">
                           <div class="question-container question-three">
                             <label class="form-label light-text">Coméntanos sobre ti</label>
-                            <textarea class="form-control" name="otros" id="" cols="10"
-                             rows="5" placeholder="Hobbies, a que te dedicas,gustos propios"></textarea>
+                            <textarea class="form-control" name="personalInfo" id="" cols="10" rows="5" 
+                            placeholder="Hobbies, a que te dedicas,gustos propios" required
+                            [(ngModel)]="stepTwoData.personalInfo" (ngModelChange)="checkStepTwoCompletion()"></textarea>
                           </div>
                         </div>
                         <div class="row">
@@ -78,20 +85,24 @@
                             <div class="question-container question-one">
                               <label class="form-label light-text">¿En qué rango de edad?</label>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                <label class="form-check-label" for="inlineRadio1"> < 30 años</label>
+                                <input class="form-check-input" type="radio" name="ageRangeOptions" id="ageRange1"  required
+                                value="option1" [(ngModel)]="stepTwoData.ageRange" (ngModelChange)="checkStepTwoCompletion()">
+                                <label class="form-check-label" for="ageRange1"> < 30 años</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                  <label class="form-check-label" for="inlineRadio2">30-40 años</label>
+                                  <input class="form-check-input" type="radio" name="ageRangeOptions" id="ageRange2"  required
+                                  value="option2" [(ngModel)]="stepTwoData.ageRange" (ngModelChange)="checkStepTwoCompletion()">
+                                  <label class="form-check-label" for="ageRange2">30-40 años</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                  <label class="form-check-label" for="inlineRadio2">40+ años</label>
+                                  <input class="form-check-input" type="radio" name="ageRangeOptions" id="ageRange3" required
+                                   value="option3" [(ngModel)]="stepTwoData.ageRange" (ngModelChange)="checkStepTwoCompletion()">
+                                  <label class="form-check-label" for="ageRange3">40+ años</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                  <label class="form-check-label" for="inlineRadio2">Me es indiferente</label>
+                                  <input class="form-check-input" type="radio" name="ageRangeOptions" id="ageRange4" required
+                                  value="option4" [(ngModel)]="stepTwoData.ageRange" (ngModelChange)="checkStepTwoCompletion()">
+                                  <label class="form-check-label" for="ageRange4">Me es indiferente</label>
                               </div>
                             </div>
                         </div>
@@ -99,20 +110,24 @@
                           <div class="question-container question-one">
                             <label class="form-label light-text">Preferencia de género</label>
                             <div class="form-check form-check-inline">
-                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                              <label class="form-check-label" for="inlineRadio1">Mujer</label>
+                              <input class="form-check-input" type="radio" name="genderOptions" id="gender5" required
+                               value="option5" [(ngModel)]="stepTwoData.gender" (ngModelChange)="checkStepTwoCompletion()">
+                              <label class="form-check-label" for="gender5">Mujer</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                <label class="form-check-label" for="inlineRadio2">Hombre</label>
+                                <input class="form-check-input" type="radio" name="genderOptions" id="gender6" required
+                                value="option6" [(ngModel)]="stepTwoData.gender" (ngModelChange)="checkStepTwoCompletion()">
+                                <label class="form-check-label" for="gender6">Hombre</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                <label class="form-check-label" for="inlineRadio2">Disidente</label>
+                                <input class="form-check-input" type="radio" name="genderOptions" id="gender7" required
+                                 value="option7" [(ngModel)]="stepTwoData.gender" (ngModelChange)="checkStepTwoCompletion()">
+                                <label class="form-check-label" for="gender7">Disidente</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                <label class="form-check-label" for="inlineRadio2">Me es indiferente</label>
+                                <input class="form-check-input" type="radio" name="genderOptions" id="gender8" required 
+                                value="option8" [(ngModel)]="stepTwoData.gender" (ngModelChange)="checkStepTwoCompletion()">
+                                <label class="form-check-label" for="gender8">Me es indiferente</label>
                             </div>
                           </div>
 
@@ -121,23 +136,28 @@
                           <div class="question-container question-one">
                             <label class="form-label light-text">Modalidad</label>
                             <div class="form-check form-check-inline">
-                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                              <label class="form-check-label" for="inlineRadio1">Presencial</label>
+                              <input class="form-check-input" type="radio" name="modalityOptions" id="modality9" required 
+                              value="option9" [(ngModel)]="stepTwoData.modality" (ngModelChange)="checkStepTwoCompletion()">
+                              <label class="form-check-label" for="modality9">Presencial</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                <label class="form-check-label" for="inlineRadio2">Online</label>
+                                <input class="form-check-input" type="radio" name="modalityOptions" id="modality10" required 
+                                value="option10" [(ngModel)]="stepTwoData.modality" (ngModelChange)="checkStepTwoCompletion()">
+                                <label class="form-check-label" for="modality10">Online</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                <label class="form-check-label" for="inlineRadio2">Me es indiferente</label>
+                                <input class="form-check-input" type="radio" name="modalityOptions" id="modality11" required 
+                                value="option11" [(ngModel)]="stepTwoData.modality" (ngModelChange)="checkStepTwoCompletion()">
+                                <label class="form-check-label" for="modality11">Me es indiferente</label>
                             </div>  
                           </div>      
                         </div>
                     </form>
                     <div>
                       <button mat-button matStepperPrevious class="btn btn-secondary step-btn yellow">Volver</button>
-                      <button mat-button matStepperNext class="btn btn-info step-btn green">Siguiente</button>
+                      <button mat-button matStepperNext class="btn btn-info step-btn green"
+                      [disabled]="!checkPreviousStepCompletion(stepper, 2) || !isStepTwoComplete"
+                      (click)="updateAndNavigateToNextStep()">Siguiente</button>
                     </div>
                 </mat-step>
                 <mat-step>
@@ -148,14 +168,17 @@
                   </div>
             
                   <div class="step-three-buttons">
-                    <button mat-button matStepperPrevious class="btn btn-secondary yellow">Volver</button>
-                    <button mat-button (click)="stepper.reset()" routerLink="/match-result" class="btn btn-warning green">Obtener match</button>
+                    <button mat-button matStepperPrevious class="btn btn-secondary yellow step-btn">Volver</button>
+                    <button mat-button (click)="stepper.reset()" routerLink="/match-result" class="btn btn-warning green step-btn">Obtener match</button>
                   </div>
                 </mat-step>
             </mat-horizontal-stepper>
         </div>
     </div>
 </div>
+
+
+
 
   
   

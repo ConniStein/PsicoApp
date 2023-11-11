@@ -28,7 +28,7 @@ export class DirectoryService {
   });
   }*/
 
-  preRegister(token: any, data: any) {
+  preRegister(data: any) {
     let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.post(apiUrl + '/pre-registration/', data, { headers: headers })
       .pipe(
@@ -37,6 +37,18 @@ export class DirectoryService {
           return throwError(error);
         })
       );
+  }
+
+  updateMatchForm(data:any, id:any){
+    return new Promise((resolve, reject)=>{
+      let headers = new HttpHeaders({'Content-Type': 'application/json'});
+      this.http.patch(apiUrl + '/update-form-match/'+id , data, {headers : headers})
+      .subscribe(res=>{
+        resolve(res);
+      },(err)=>{
+        reject(err);
+      });
+    });
   }
   
   
