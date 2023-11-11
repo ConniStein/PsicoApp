@@ -28,13 +28,33 @@ export class MatchFormComponent implements OnInit {
   id: any;
   dataMatchForm: any;
   preregister: any = { "name":"", "email":""};
-  stepTwoData: any = { 
+  /*stepTwoData: any = { 
     description: '', 
     selectedSymptoms: [], 
     personalInfo: '',
     ageRange: [],
     gender: [],
-    modality: [] }
+    modality: [] }*/
+
+  questions  = { 
+    "textarea_1": "Describe brevemente por qué acudes a terapia",
+    "select_1": "Síntomas asociados",
+    "textarea_2": "Coméntanos sobre ti",
+    "radio_1": "¿En qué rango de edad?",
+    "radio_2": "Preferencia de género",
+    "radio_3": "Modalidad"
+   }  
+   
+  answerData = {"a_1":"", "a_2":[], "a_3": "", "a_4":[], "a_5":[], "a_6": []} 
+
+  stepTwoData = {"q_1": this.questions.textarea_1, "a_1": this.answerData.a_1,
+  "q_2": this.questions.select_1, "a_2": this.answerData.a_2,
+  "q_3": this.questions.textarea_2, "a_3": this.answerData.a_3,
+  "q_4": this.questions.radio_1, "a_4": this.answerData.a_4,
+  "q_5": this.questions.radio_2, "a_5": this.answerData.a_5,
+  "q_6": this.questions.radio_3, "a_6": this.answerData.a_6,
+}
+  
   firstFormGroup = this._formBuilder.group({
     firstCtrl: ['', Validators.required],
   });
@@ -110,9 +130,9 @@ export class MatchFormComponent implements OnInit {
 
   checkStepTwoCompletion() {
     // Example logic to check Step Two completion status
-    if (this.stepTwoData.description && this.stepTwoData.selectedSymptoms.length > 0 && 
-      this.stepTwoData.personalInfo && this.stepTwoData.ageRange.length > 0 && 
-      this.stepTwoData.gender.length > 0 && this.stepTwoData.modality.length > 0) {
+    if (this.stepTwoData.a_1 && this.stepTwoData.a_2.length > 0 && 
+      this.stepTwoData.a_3 && this.stepTwoData.a_4.length > 0 && 
+      this.stepTwoData.a_5.length > 0 && this.stepTwoData.a_6.length > 0) {
       this.isStepTwoComplete = true;
     } else {
       this.isStepTwoComplete = false;
@@ -150,6 +170,31 @@ export class MatchFormComponent implements OnInit {
       }
     );
   }
+
+  updateAndNavigateToNextStep() {
+    this.updateMatchForm(this.id); // Pass the 'id' as an argument
+    // Navigate to the next step
+    if (this.stepper) {
+      this.stepper.next();
+    }
+  }
+  
+  updateMatchForm(id: any) {
+    console.log(this.stepTwoData);
+    
+    // Call the updateMatchForm function from your directoryService
+    this.directoryService.updateMatchForm(this.stepTwoData, id)
+      .then(
+        (data) => {
+          this.dataMatchForm = data; // Update dataMatchForm with the response data if needed
+          console.log(this.dataMatchForm);
+        },
+        (error) => {
+          console.error('Error in updateMatchForm: ', error);
+  
+        }
+      );
+  }
   
 
   /*updateAndNavigateToNextStep() {
@@ -179,31 +224,5 @@ export class MatchFormComponent implements OnInit {
         }
       );
   }*/
-
-  updateAndNavigateToNextStep() {
-    this.updateMatchForm(this.id); // Pass the 'id' as an argument
-    // Navigate to the next step
-    if (this.stepper) {
-      this.stepper.next();
-    }
-  }
-  
-  updateMatchForm(id: any) {
-    console.log(this.stepTwoData);
-    
-    // Call the updateMatchForm function from your directoryService
-    this.directoryService.updateMatchForm(this.stepTwoData, id)
-      .then(
-        (data) => {
-          this.dataMatchForm = data; // Update dataMatchForm with the response data if needed
-          console.log(this.dataMatchForm);
-        },
-        (error) => {
-          console.error('Error in updateMatchForm: ', error);
-  
-        }
-      );
-  }
-  
 
 }
